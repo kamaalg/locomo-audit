@@ -1,0 +1,25 @@
+{
+  "instance_id": "T2-hard-0002",
+  "category": "T2",
+  "difficulty": "hard",
+  "update_frequency": "UF1",
+  "reasoning_depth": "RD1",
+  "persona_id": "p001",
+  "query": "What patterns appear in how I describe my mood over the last few months?",
+  "corpus_ref": "data/synthetic/corpus/persona-001/",
+  "answer_bearing_doc_ids": ["d_0601", "d_0612", "d_0623", "d_0634", "d_0645", "d_0656", "d_0667", "d_0678"],
+  "gold": {
+    "answer": "Your mood dips midweek (especially Tuesday/Wednesday) and lifts on weekends; the lifts consistently co-occur with exercise or outdoor activity, and the low points cluster around work deadlines.",
+    "claim_set": ["mood dips midweek", "mood lifts on weekends", "weekend lifts co-occur with exercise or outdoor activity", "low points cluster around work deadlines"],
+    "claim_evidence": {
+      "mood dips midweek": ["wednesday", "tuesday", "midweek", "drained", "slog"],
+      "mood lifts on weekends": ["saturday", "sunday", "weekend", "happy", "optimistic"],
+      "weekend lifts co-occur with exercise or outdoor activity": ["hike", "run", "climbing", "walk", "trail"],
+      "low points cluster around work deadlines": ["deadline", "release", "sprint", "behind"]
+    },
+    "min_supporting_docs": 8,
+    "hop_count": 4
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 20,
+    "note": "Open pattern-synthesis; gold is a 4-claim set scored by claim-recall. No single doc states the pattern."}
+}

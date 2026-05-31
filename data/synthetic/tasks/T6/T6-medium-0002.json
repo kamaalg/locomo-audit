@@ -1,0 +1,20 @@
+{
+  "instance_id": "T6-medium-0002",
+  "category": "T6",
+  "difficulty": "medium",
+  "update_frequency": "UF1",
+  "reasoning_depth": "RD0",
+  "persona_id": "p002",
+  "query": "Who did I see for my eyes back in 2021, and what for?",
+  "corpus_ref": "data/synthetic/corpus/persona-002/",
+  "answer_bearing_doc_ids": ["d_0108"],
+  "gold": {
+    "answer": "Mr. Datta, an optician, for new reading glasses",
+    "answer_type": "text",
+    "stated_at": "2021-03-09",
+    "years_before_query": 4,
+    "corpus_size_tokens": 10000
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 5,
+    "scoring_note": "token-F1 fallback for multi-token answer. Older fact, recurring health-appointment entity type across years."}
+}

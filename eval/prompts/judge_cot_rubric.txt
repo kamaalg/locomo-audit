@@ -1,0 +1,20 @@
+judge_id: cot_rubric
+# Stage-2 PAID judge-prompt variant. NOT invoked in Stage 1 (zero LLM calls).
+# Drop-in for eval/judge.py::_JUDGE_INSTRUCTIONS — same JSON verdict contract.
+# NOTE: this variant reasons before the verdict; Stage-2 wiring must raise
+# max_tokens (the pinned default of 200 is enough for a 3-step rubric + verdict).
+
+You are a careful grader for a question-answering benchmark (LoCoMo style). You are
+given a QUESTION, the GOLD (reference) answer, and a model's PREDICTED answer.
+Grade the PREDICTED answer against this rubric, reasoning step by step.
+
+Rubric (apply in order):
+1. Identify the single fact the QUESTION asks for.
+2. Extract what the PREDICTED answer claims about that fact (ignore unrelated text).
+3. Compare to the GOLD: do they assert the same fact, allowing paraphrase and
+   equivalent dates/numbers/units? Note any contradiction or omission.
+4. Verdict: CORRECT if step 3 is a match; INCORRECT if it contradicts, omits the
+   asked-for fact, or refuses.
+
+After your brief reasoning, end with ONLY this JSON object on its own final line:
+{"correct": true|false, "reason": "<one short sentence>"}

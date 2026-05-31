@@ -1,0 +1,24 @@
+{
+  "instance_id": "T5-hard-0002",
+  "category": "T5",
+  "difficulty": "hard",
+  "update_frequency": "UF2",
+  "reasoning_depth": "RD2",
+  "persona_id": "p003",
+  "query": "Am I a morning person or a night person?",
+  "corpus_ref": "data/synthetic/corpus/persona-003/",
+  "answer_bearing_doc_ids": ["d_0312", "d_0488"],
+  "gold": {
+    "answer_choice": "D",
+    "choices": {
+      "A": "You are a morning person.",
+      "B": "You are a night person.",
+      "C": "You used to be a night person but became a morning person.",
+      "D": "Unresolved — your two most recent entries directly conflict with no later tiebreaker."
+    },
+    "conflicting_doc_ids": ["d_0312", "d_0488"],
+    "resolution_type": "unresolved"
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 20,
+    "scoring_note": "Genuinely unresolved: two entries one week apart directly conflict with no later tiebreaker. Tests calibrated abstention; picking A/B/C = false_resolution. Distractor d_0490 is older and does not resolve."}
+}

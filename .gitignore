@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Model checkpoints (large, reproduced from configs)
+systems/**/checkpoints/
+*.safetensors
+*.gguf
+*.bin
+
+# Vector stores / local DBs
+*.chroma/
+*.duckdb
+*.sqlite
+
+# Private data splits — see data/README.md for which are gitignored.
+# Synthetic data is regenerable from seeds; test split is canonical and committed.
+data/consented/
+data/public/**/raw/
+
+# External / licensed datasets and cloned vendor repos — NEVER committed.
+# LoCoMo is CC BY-NC 4.0 (snap-research/locomo); raw data + converted instances
+# stay local. external/ holds vendor code we clone but do not vendor.
+external/
+data/external/
+
+# Experiment outputs are reproducible from configs; keep aggregated, ignore raw blobs.
+results/raw.jsonl
+results/**/raw.jsonl
+results/manifest.json
+results/**/checkpoint.json
+
+# Per-row tagged artifacts for the REAL LoCoMo run embed CC BY-NC questions/answers
+# verbatim — do not commit. The small committed aggregate lives in the report instead.
+results/real_locomo_baselines/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

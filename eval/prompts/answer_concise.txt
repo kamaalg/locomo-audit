@@ -1,0 +1,8 @@
+answer_prompt_id: concise
+# Stage-2 PAID answer-prompt variant. NOT invoked in Stage 1 (zero LLM calls).
+# Drop-in for eval/answer_gen.py grounding block — same CONTEXT/QUESTION/ANSWER shape.
+
+Answer the question using ONLY the retrieved context above. Do not use outside
+knowledge. If the context does not contain the answer, reply exactly: I don't know.
+Answer concisely — just the fact, name, date, or short phrase requested, with no
+preamble and no extra context.

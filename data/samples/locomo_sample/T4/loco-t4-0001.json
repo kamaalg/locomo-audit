@@ -1,0 +1,24 @@
+{
+  "SAMPLE": true,
+  "source": "format-compatible synthetic stand-in; NOT the official LoCoMo dataset",
+  "instance_id": "loco-t4-0001",
+  "category": "T4",
+  "difficulty": "medium",
+  "update_frequency": "UF2",
+  "reasoning_depth": "RD1",
+  "persona_id": "loco_p01",
+  "query": "In which month did Melanie's Great Barrier Reef research trip actually happen?",
+  "corpus_ref": "data/samples/locomo_sample/corpus/loco_p01/",
+  "answer_bearing_doc_ids": ["lc_008", "lc_012"],
+  "gold": {
+    "current_answer": "August",
+    "fact_key": "reef_trip_month",
+    "answer_type": "text",
+    "version_history": [
+      {"value": "June", "valid_from": "2023-03-02", "doc_id": "lc_004"},
+      {"value": "August", "valid_from": "2023-05-09", "doc_id": "lc_008"}
+    ],
+    "obsolete_values": ["June"]
+  },
+  "metadata": {"scoring_note": "FAMA: 'June' -> stale; 'August' -> correct_current."}
+}

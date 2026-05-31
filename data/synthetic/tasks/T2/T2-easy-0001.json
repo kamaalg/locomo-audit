@@ -1,0 +1,18 @@
+{
+  "instance_id": "T2-easy-0001",
+  "category": "T2",
+  "difficulty": "easy",
+  "update_frequency": "UF1",
+  "reasoning_depth": "RD1",
+  "persona_id": "p001",
+  "query": "What two cities have I lived in, and which did I prefer?",
+  "corpus_ref": "data/synthetic/corpus/persona-001/",
+  "answer_bearing_doc_ids": ["d_0002", "d_0188"],
+  "gold": {
+    "answer": "Berlin and Lisbon; you preferred Lisbon.",
+    "claim_set": ["lived in Berlin", "lived in Lisbon", "preferred Lisbon"],
+    "min_supporting_docs": 2,
+    "hop_count": 2
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 0}
+}

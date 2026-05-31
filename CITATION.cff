@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this audit harness or cite the LoCoMo Audit findings, please cite it as below."
+title: "There Is No Single LoCoMo Score: A Standardized, Vendor-Audited Re-evaluation of LLM Memory Systems"
+abstract: >-
+  An independent, reproducible evaluation harness for AI-memory systems, and a
+  forensic audit of the public LoCoMo benchmark dispute. Decomposes four
+  methodological forks responsible for 67%–92% vendor score divergence and
+  specifies one frozen, fair, fully-reproducible protocol. Includes a $0
+  keyless retrieval floor verifiable on real LoCoMo data today.
+type: software
+authors:
+  - family-names: Gurbanov
+    given-names: Kamal
+    roles:
+      - "Principal Investigator"
+version: 0.0.1
+license: Apache-2.0
+keywords:
+  - benchmark
+  - llm
+  - memory
+  - rag
+  - personal-ai
+  - audit
+  - reproducibility
+  - locomo
+date-released: 2026-05-30

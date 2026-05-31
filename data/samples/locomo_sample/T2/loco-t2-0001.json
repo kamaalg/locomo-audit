@@ -1,0 +1,18 @@
+{
+  "SAMPLE": true,
+  "source": "format-compatible synthetic stand-in; NOT the official LoCoMo dataset",
+  "instance_id": "loco-t2-0001",
+  "category": "T2",
+  "difficulty": "medium",
+  "update_frequency": "UF1",
+  "reasoning_depth": "RD2",
+  "persona_id": "loco_p01",
+  "query": "Which two pets were adopted across these conversations, and by whom?",
+  "corpus_ref": "data/samples/locomo_sample/corpus/loco_p01/",
+  "answer_bearing_doc_ids": ["lc_001", "lc_010"],
+  "gold": {
+    "answer": "Caroline adopted a dog named Biscuit and Melanie adopted a cat named Pixel",
+    "answer_type": "text",
+    "claims": ["Caroline adopted a dog named Biscuit", "Melanie adopted a cat named Pixel"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "instance_id": "T1-medium-0002",
+  "category": "T1",
+  "difficulty": "medium",
+  "update_frequency": "UF2",
+  "reasoning_depth": "RD1",
+  "persona_id": "p002",
+  "query": "When did I switch from the leisure-centre gym to the council swim membership?",
+  "corpus_ref": "data/synthetic/corpus/persona-002/",
+  "answer_bearing_doc_ids": ["d_0140"],
+  "gold": {
+    "answer": "I cancelled the leisure-centre gym and switched to the council swim membership",
+    "answer_type": "date",
+    "gold_value": "2024-07-15",
+    "tolerance_days": 7,
+    "time_anchor": "2024-07-15",
+    "time_granularity": "day"
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 5}
+}

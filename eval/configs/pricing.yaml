@@ -1,0 +1,26 @@
+# Frozen pricing for the fair cost-accounting protocol (benchmark-spec §1.2, gap G10).
+# The runner converts QueryResult token/latency/GPU figures to USD via this table so
+# heterogeneous systems (API agents vs vector DBs vs fine-tuned parametric models) are
+# compared on one currency. FROZEN per experiment run and recorded in the run manifest;
+# changing it invalidates cross-run comparability. Update the version + date on change.
+
+version: "2026-05-25"
+currency: USD
+
+# Per 1M tokens unless noted. Fill exact rates at Wave 4 from provider price sheets.
+llm:
+  claude-sonnet-4:      { input_per_mtok: null, output_per_mtok: null }
+  gpt-4o-mini:          { input_per_mtok: null, output_per_mtok: null }
+  gemini-2.5-pro:       { input_per_mtok: null, output_per_mtok: null }
+
+embeddings:
+  text-embedding-3-large: { per_mtok: null }
+
+# GPU rental for parametric training/inference (Strata cold tier, MeMo baseline).
+# Update cost for parametric systems amortizes training GPU-hours over the corpus.
+gpu:
+  a100_80gb_per_hour: null
+
+# Vector store / checkpoint storage, per GB-month.
+storage:
+  per_gb_month: null

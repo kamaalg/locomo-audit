@@ -1,0 +1,20 @@
+{
+  "instance_id": "T1-hard-0003",
+  "category": "T1",
+  "difficulty": "hard",
+  "update_frequency": "UF3",
+  "reasoning_depth": "RD1",
+  "persona_id": "p001",
+  "query": "What was I working on the week before I started my new job?",
+  "corpus_ref": "data/synthetic/corpus/persona-001/",
+  "answer_bearing_doc_ids": ["d_0510", "d_0512"],
+  "gold": {
+    "answer": "Wrapping up the Henderson migration cutover and writing handover docs",
+    "answer_type": "text",
+    "time_anchor": "2024-10-28",
+    "time_granularity": "week",
+    "anchor_resolution": {"new_job_start": "2024-11-04", "doc_id": "d_0520"}
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 20,
+    "note": "Must resolve the anchor (new job start = 2024-11-04 via d_0520) then look back one week. Same-entity wrong-time distractor d_0408 (August Henderson phase)."}
+}

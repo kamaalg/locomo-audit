@@ -1,0 +1,24 @@
+{
+  "SAMPLE": true,
+  "source": "format-compatible synthetic stand-in; NOT the official LongMemEval dataset",
+  "instance_id": "lme-t4-0001",
+  "category": "T4",
+  "difficulty": "medium",
+  "update_frequency": "UF2",
+  "reasoning_depth": "RD1",
+  "persona_id": "lme_p01",
+  "query": "Who is my current manager?",
+  "corpus_ref": "data/samples/longmemeval_sample/corpus/lme_p01/",
+  "answer_bearing_doc_ids": ["lm_006"],
+  "gold": {
+    "current_answer": "David Chen",
+    "fact_key": "manager",
+    "answer_type": "text",
+    "version_history": [
+      {"value": "Priya Nair", "valid_from": "2022-09-01", "doc_id": "lm_001"},
+      {"value": "David Chen", "valid_from": "2023-01-15", "doc_id": "lm_006"}
+    ],
+    "obsolete_values": ["Priya Nair"]
+  },
+  "metadata": {"scoring_note": "FAMA: 'Priya Nair' -> stale; 'David Chen' -> correct_current. Extractive retrievers that surface the older onboarding note score 'stale' -> the stale-fact tax."}
+}

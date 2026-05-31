@@ -1,0 +1,105 @@
+{
+  "experiment": "stage2_rejudge",
+  "scope": "3 systems \u00d7 40 Q \u00d7 pilot_p01, single persona",
+  "systems": [
+    "bm25",
+    "tfidf_rag",
+    "longcontext"
+  ],
+  "n_questions_per_system": 40,
+  "judge_configs": [
+    "sonnet-default",
+    "haiku-default",
+    "sonnet-strict",
+    "sonnet-lenient",
+    "sonnet-cot_rubric"
+  ],
+  "j_table": {
+    "sonnet-default": {
+      "bm25": 0.025,
+      "tfidf_rag": 0.025,
+      "longcontext": 0.775
+    },
+    "haiku-default": {
+      "bm25": 0.025,
+      "tfidf_rag": 0.025,
+      "longcontext": 0.65
+    },
+    "sonnet-strict": {
+      "bm25": 0.025,
+      "tfidf_rag": 0.025,
+      "longcontext": 0.625
+    },
+    "sonnet-lenient": {
+      "bm25": 0.15,
+      "tfidf_rag": 0.15,
+      "longcontext": 0.85
+    },
+    "sonnet-cot_rubric": {
+      "bm25": 0.025,
+      "tfidf_rag": 0.025,
+      "longcontext": 0.575
+    }
+  },
+  "rankings": {
+    "sonnet-default": [
+      "longcontext",
+      "bm25",
+      "tfidf_rag"
+    ],
+    "haiku-default": [
+      "longcontext",
+      "bm25",
+      "tfidf_rag"
+    ],
+    "sonnet-strict": [
+      "longcontext",
+      "bm25",
+      "tfidf_rag"
+    ],
+    "sonnet-lenient": [
+      "longcontext",
+      "bm25",
+      "tfidf_rag"
+    ],
+    "sonnet-cot_rubric": [
+      "longcontext",
+      "bm25",
+      "tfidf_rag"
+    ]
+  },
+  "rank_stability": {
+    "haiku-default": {
+      "kendall_tau": 1.0,
+      "swap_fraction": 0.0,
+      "n_pairs": 3,
+      "swapped_pairs": [],
+      "rank_flipped": false
+    },
+    "sonnet-strict": {
+      "kendall_tau": 1.0,
+      "swap_fraction": 0.0,
+      "n_pairs": 3,
+      "swapped_pairs": [],
+      "rank_flipped": false
+    },
+    "sonnet-lenient": {
+      "kendall_tau": 1.0,
+      "swap_fraction": 0.0,
+      "n_pairs": 3,
+      "swapped_pairs": [],
+      "rank_flipped": false
+    },
+    "sonnet-cot_rubric": {
+      "kendall_tau": 1.0,
+      "swap_fraction": 0.0,
+      "n_pairs": 3,
+      "swapped_pairs": [],
+      "rank_flipped": false
+    }
+  },
+  "total_paid_calls": 480,
+  "total_cost_usd": 0.916295,
+  "hard_budget_usd": 15.0,
+  "dry_run": false
+}

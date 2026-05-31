@@ -1,0 +1,56 @@
+# Frozen Step-B generation plan (ADR 0004 — restricted scale points).
+# Consumed by scripts/generate_corpus.py. Changing this after a release invalidates
+# the dataset version; bump `version` and record in data/SYNTHETIC_GENERATION.md.
+
+version: "step-b-v1-2026-05-25"
+seed: 20260525
+
+personas:
+  total: 75                      # diversity target (50–100 range)
+  # Standard personas: small corpus, just enough to host their task instances.
+  standard:
+    count: 70
+    corpus_tokens: 100_000
+  # Carrier personas: large corpora that carry the scale-degradation curves (G9).
+  # Larger corpora are SUPERSETS of smaller (answer-bearing docs constant, padding grows),
+  # so each carrier is generated once at its max scale and truncated for smaller points.
+  carriers:
+    count: 5
+    scale_points_tokens: [10_000, 100_000, 1_000_000, 10_000_000]
+    stretch:
+      count: 1                   # one carrier also generated to 30M for the long-context-limit probe
+      tokens: 30_000_000
+
+# Per-persona document mix (proportions; counts scale with corpus size).
+corpus_mix:
+  journal: 0.50
+  note: 0.25
+  email: 0.15
+  calendar: 0.10
+realistic_gaps: true             # skip days; uneven cadence
+
+tasks:
+  per_category_per_difficulty: 100   # ~2,400 total across 8 cats x 3 tiers
+  categories: [T1, T2, T3, T4, T5, T6, T7, T8]
+  query_time_anchor: "2026-01-01"    # canonical "now" (orchestrator-clarifications §8.4)
+
+ethics:
+  consented_tier: false              # ADR 0003: synthetic + public only
+  t7_allowlist: [income_bracket, commute_mode, household_size]   # protected classes excluded
+  t8_taxonomy: data/T8_SENSITIVE_TAXONOMY.md                     # PI-approved (ADR 0004)
+
+qc:
+  require_model: true                # run the live role="qc" uniqueness probe at scale
+  checks: [supportedness, uniqueness, ambiguity, difficulty_calibration, t7_allowlist, t7_evidence_ablation]
+
+# Cost guard (sized in ADR 0004 ~ $460 @ $5/1M; halt if exceeded).
+budget:
+  estimated_corpus_tokens: 77_000_000
+  hard_ceiling_usd: 700
+  price_sheet: eval/configs/pricing.yaml
+
+# Anti-same-family routing (scripts/_llm.py enforces corpus != gold family).
+model_roles:
+  corpus: { family: A }    # bind to a concrete vendor/model in the client bootstrap
+  gold:   { family: B }    # MUST differ from corpus family
+  qc:     { family: C }

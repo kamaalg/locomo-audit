@@ -1,0 +1,20 @@
+{
+  "instance_id": "T3-hard-0002",
+  "category": "T3",
+  "difficulty": "hard",
+  "update_frequency": "UF0",
+  "reasoning_depth": "RD2",
+  "persona_id": "p002",
+  "query": "Write a short email to the allotment committee proposing a new compost rota, in my voice.",
+  "corpus_ref": "data/synthetic/corpus/persona-002/",
+  "answer_bearing_doc_ids": [],
+  "gold": {
+    "task_prompt": "Propose a new compost rota to the allotment committee, in my voice.",
+    "persona_style_profile_ref": "data/synthetic/personas/persona-002.json",
+    "positive_reference_doc_ids": ["d_0175"],
+    "adequacy_keywords": ["compost", "rota", "propose", "meeting"],
+    "style_notes": "Persona p002: terse, plain, proper capitalisation, full stops, no emoji, formal sign-off ('Regards'). Subtle style; cross-genre (only one email reference) makes this hard."
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 0,
+    "scoring_note": "Hard: subtle/plain style, few email references, cross-genre transfer from terse notes to a committee email."}
+}

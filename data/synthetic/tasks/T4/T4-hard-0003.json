@@ -1,0 +1,25 @@
+{
+  "instance_id": "T4-hard-0003",
+  "category": "T4",
+  "difficulty": "hard",
+  "update_frequency": "UF3",
+  "reasoning_depth": "RD0",
+  "persona_id": "p003",
+  "query": "What is my current diet, as of today?",
+  "corpus_ref": "data/synthetic/corpus/persona-003/",
+  "answer_bearing_doc_ids": ["d_0709"],
+  "gold": {
+    "current_answer": "vegetarian",
+    "fact_key": "diet",
+    "answer_type": "text",
+    "version_history": [
+      {"value": "vegetarian", "valid_from": "2023-01-01", "doc_id": "d_0501"},
+      {"value": "omnivore", "valid_from": "2024-02-01", "doc_id": "d_0640", "evidence_phrase": "started eating meat again"},
+      {"value": "vegetarian", "valid_from": "2025-01-05", "doc_id": "d_0709"}
+    ],
+    "obsolete_values": ["omnivore"],
+    "reverted": true
+  },
+  "metadata": {"comparability": false, "consolidation_probe": true, "noise_level": 20,
+    "scoring_note": "Reverted A->B->A. Recency-of-mention (meat distractors d_0660/d_0665 are frequent) conflicts with recency-of-validity (latest = vegetarian). Only timestamp logic wins."}
+}

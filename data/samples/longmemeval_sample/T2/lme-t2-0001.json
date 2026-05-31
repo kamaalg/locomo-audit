@@ -1,0 +1,18 @@
+{
+  "SAMPLE": true,
+  "source": "format-compatible synthetic stand-in; NOT the official LongMemEval dataset",
+  "instance_id": "lme-t2-0001",
+  "category": "T2",
+  "difficulty": "medium",
+  "update_frequency": "UF1",
+  "reasoning_depth": "RD2",
+  "persona_id": "lme_p01",
+  "query": "Which two cities did I move between when I changed apartments?",
+  "corpus_ref": "data/samples/longmemeval_sample/corpus/lme_p01/",
+  "answer_bearing_doc_ids": ["lm_012"],
+  "gold": {
+    "answer": "from Austin to Denver",
+    "answer_type": "text",
+    "claims": ["from Austin", "to Denver"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "SAMPLE": true,
+  "source": "format-compatible synthetic stand-in; NOT the official LoCoMo dataset",
+  "instance_id": "loco-t1-0003",
+  "category": "T1",
+  "difficulty": "easy",
+  "update_frequency": "UF1",
+  "reasoning_depth": "RD0",
+  "persona_id": "loco_p01",
+  "query": "What is the name of the cat Melanie adopted?",
+  "corpus_ref": "data/samples/locomo_sample/corpus/loco_p01/",
+  "answer_bearing_doc_ids": ["lc_010"],
+  "gold": {"answer": "Pixel", "answer_type": "text"}
+}

@@ -1,0 +1,12 @@
+answer_prompt_id: verbose
+# Stage-2 PAID answer-prompt variant. NOT invoked in Stage 1 (zero LLM calls).
+# Drop-in for eval/answer_gen.py grounding block — same CONTEXT/QUESTION/ANSWER shape.
+# This is the "verbose-correct" probe: it deliberately produces full sentences so the
+# metric-disagreement subset (token_f1 underrating verbose-but-correct answers) is
+# exercised — exactly the live-pilot failure (correct answer scored 0.13 under token_f1).
+
+Answer the question using ONLY the retrieved context above. Do not use outside
+knowledge. If the context does not contain the answer, reply exactly: I don't know.
+Answer in a complete, well-formed sentence that restates what was asked and then
+gives the answer, citing the relevant detail from the context. Be thorough and
+explanatory rather than terse.

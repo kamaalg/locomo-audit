@@ -1,0 +1,23 @@
+{
+  "instance_id": "T4-easy-0001",
+  "category": "T4",
+  "difficulty": "easy",
+  "update_frequency": "UF2",
+  "reasoning_depth": "RD0",
+  "persona_id": "p001",
+  "query": "Where do I live now?",
+  "corpus_ref": "data/synthetic/corpus/persona-001/",
+  "answer_bearing_doc_ids": ["d_0188"],
+  "gold": {
+    "current_answer": "Lisbon",
+    "fact_key": "residence_city",
+    "answer_type": "text",
+    "version_history": [
+      {"value": "Berlin", "valid_from": "2021-01-01", "doc_id": "d_0002"},
+      {"value": "Lisbon", "valid_from": "2024-03-10", "doc_id": "d_0188"}
+    ],
+    "obsolete_values": ["Berlin"]
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 0,
+    "scoring_note": "FAMA: 'Berlin' -> stale; 'Lisbon' -> correct_current."}
+}

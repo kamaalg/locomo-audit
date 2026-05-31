@@ -1,0 +1,845 @@
+{
+  "manifest": {
+    "git_sha": "unknown",
+    "created_utc": "2026-05-30T21:41:04.146961+00:00",
+    "python": "3.14.3 (v3.14.3:323c59a5e34, Feb  3 2026, 11:41:37) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "stage": "stage1",
+    "tasks_root": "data/external/locomo",
+    "systems": [
+      "bm25",
+      "tfidf_rag"
+    ],
+    "ks": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "metrics": [
+      "exact_match",
+      "token_f1",
+      "normalized_contains",
+      "normalized_em_first_token"
+    ],
+    "n_answerable": 1540,
+    "n_adversarial": 446,
+    "llm_calls": 0,
+    "total_cost_usd": 0.0,
+    "zero_cost_asserted": true,
+    "note": "Stage 1 is $0: free retrievers + free metric/denominator/retrieval-k re-aggregation only. The judge-MODEL / judge-prompt / answer-prompt axes are Stage 2 (PAID, DEFERRED) and are emitted as PENDING below."
+  },
+  "cells": [
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.255844,
+      "system": "bm25",
+      "top_k": 1
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.059595,
+      "score_denom_incl_cat5": 0.046212,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.255844,
+      "system": "bm25",
+      "top_k": 1
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.072727,
+      "score_denom_incl_cat5": 0.056395,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.255844,
+      "system": "bm25",
+      "top_k": 1
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.009091,
+      "score_denom_incl_cat5": 0.007049,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.255844,
+      "system": "bm25",
+      "top_k": 1
+    },
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.407143,
+      "system": "bm25",
+      "top_k": 3
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.059595,
+      "score_denom_incl_cat5": 0.046212,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.407143,
+      "system": "bm25",
+      "top_k": 3
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.072727,
+      "score_denom_incl_cat5": 0.056395,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.407143,
+      "system": "bm25",
+      "top_k": 3
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.009091,
+      "score_denom_incl_cat5": 0.007049,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.407143,
+      "system": "bm25",
+      "top_k": 3
+    },
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.478571,
+      "system": "bm25",
+      "top_k": 5
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.059595,
+      "score_denom_incl_cat5": 0.046212,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.478571,
+      "system": "bm25",
+      "top_k": 5
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.072727,
+      "score_denom_incl_cat5": 0.056395,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.478571,
+      "system": "bm25",
+      "top_k": 5
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.009091,
+      "score_denom_incl_cat5": 0.007049,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.478571,
+      "system": "bm25",
+      "top_k": 5
+    },
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.55974,
+      "system": "bm25",
+      "top_k": 10
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.059595,
+      "score_denom_incl_cat5": 0.046212,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.55974,
+      "system": "bm25",
+      "top_k": 10
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.072727,
+      "score_denom_incl_cat5": 0.056395,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.55974,
+      "system": "bm25",
+      "top_k": 10
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.009091,
+      "score_denom_incl_cat5": 0.007049,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.55974,
+      "system": "bm25",
+      "top_k": 10
+    },
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.216883,
+      "system": "tfidf_rag",
+      "top_k": 1
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.051977,
+      "score_denom_incl_cat5": 0.040304,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.216883,
+      "system": "tfidf_rag",
+      "top_k": 1
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.064286,
+      "score_denom_incl_cat5": 0.049849,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.216883,
+      "system": "tfidf_rag",
+      "top_k": 1
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.007792,
+      "score_denom_incl_cat5": 0.006042,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.216883,
+      "system": "tfidf_rag",
+      "top_k": 1
+    },
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.375325,
+      "system": "tfidf_rag",
+      "top_k": 3
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.051977,
+      "score_denom_incl_cat5": 0.040304,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.375325,
+      "system": "tfidf_rag",
+      "top_k": 3
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.064286,
+      "score_denom_incl_cat5": 0.049849,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.375325,
+      "system": "tfidf_rag",
+      "top_k": 3
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.007792,
+      "score_denom_incl_cat5": 0.006042,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.375325,
+      "system": "tfidf_rag",
+      "top_k": 3
+    },
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.444805,
+      "system": "tfidf_rag",
+      "top_k": 5
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.051977,
+      "score_denom_incl_cat5": 0.040304,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.444805,
+      "system": "tfidf_rag",
+      "top_k": 5
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.064286,
+      "score_denom_incl_cat5": 0.049849,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.444805,
+      "system": "tfidf_rag",
+      "top_k": 5
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.007792,
+      "score_denom_incl_cat5": 0.006042,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.444805,
+      "system": "tfidf_rag",
+      "top_k": 5
+    },
+    {
+      "metric": "exact_match",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.0,
+      "score_denom_incl_cat5": 0.0,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.538961,
+      "system": "tfidf_rag",
+      "top_k": 10
+    },
+    {
+      "metric": "token_f1",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.051977,
+      "score_denom_incl_cat5": 0.040304,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.538961,
+      "system": "tfidf_rag",
+      "top_k": 10
+    },
+    {
+      "metric": "normalized_contains",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.064286,
+      "score_denom_incl_cat5": 0.049849,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.538961,
+      "system": "tfidf_rag",
+      "top_k": 10
+    },
+    {
+      "metric": "normalized_em_first_token",
+      "n_answerable": 1540,
+      "n_adversarial": 446,
+      "score_denom_excl_cat5": 0.007792,
+      "score_denom_incl_cat5": 0.006042,
+      "adversarial_abstention_acc": 0.0,
+      "recall_at_k_answerable": 0.538961,
+      "system": "tfidf_rag",
+      "top_k": 10
+    }
+  ],
+  "swing_surface": [
+    {
+      "axis": "metric",
+      "system": "bm25",
+      "held_fixed": "k=1, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.072727,
+      "range": 0.072727
+    },
+    {
+      "axis": "metric",
+      "system": "bm25",
+      "held_fixed": "k=3, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.072727,
+      "range": 0.072727
+    },
+    {
+      "axis": "metric",
+      "system": "bm25",
+      "held_fixed": "k=5, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.072727,
+      "range": 0.072727
+    },
+    {
+      "axis": "metric",
+      "system": "bm25",
+      "held_fixed": "k=10, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.072727,
+      "range": 0.072727
+    },
+    {
+      "axis": "metric",
+      "system": "tfidf_rag",
+      "held_fixed": "k=1, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.064286,
+      "range": 0.064286
+    },
+    {
+      "axis": "metric",
+      "system": "tfidf_rag",
+      "held_fixed": "k=3, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.064286,
+      "range": 0.064286
+    },
+    {
+      "axis": "metric",
+      "system": "tfidf_rag",
+      "held_fixed": "k=5, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.064286,
+      "range": 0.064286
+    },
+    {
+      "axis": "metric",
+      "system": "tfidf_rag",
+      "held_fixed": "k=10, denom=excl_cat5",
+      "varied_over": "exact_match,token_f1,normalized_contains,normalized_em_first_token",
+      "min": 0.0,
+      "max": 0.064286,
+      "range": 0.064286
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "bm25",
+      "held_fixed": "metric=exact_match, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "bm25",
+      "held_fixed": "metric=token_f1, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.059595,
+      "max": 0.059595,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_contains, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.072727,
+      "max": 0.072727,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_em_first_token, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.009091,
+      "max": 0.009091,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_recall",
+      "system": "bm25",
+      "held_fixed": "denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.255844,
+      "max": 0.55974,
+      "range": 0.303896
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=exact_match, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=token_f1, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.051977,
+      "max": 0.051977,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_contains, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.064286,
+      "max": 0.064286,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_score",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_em_first_token, denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.007792,
+      "max": 0.007792,
+      "range": 0.0
+    },
+    {
+      "axis": "retrieval_k_recall",
+      "system": "tfidf_rag",
+      "held_fixed": "denom=excl_cat5",
+      "varied_over": "1,3,5,10",
+      "min": 0.216883,
+      "max": 0.538961,
+      "range": 0.322078
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=exact_match, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=token_f1, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.046212,
+      "max": 0.059595,
+      "range": 0.013383
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_contains, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.056395,
+      "max": 0.072727,
+      "range": 0.016332
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_em_first_token, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.007049,
+      "max": 0.009091,
+      "range": 0.002042
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=exact_match, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=token_f1, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.046212,
+      "max": 0.059595,
+      "range": 0.013383
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_contains, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.056395,
+      "max": 0.072727,
+      "range": 0.016332
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_em_first_token, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.007049,
+      "max": 0.009091,
+      "range": 0.002042
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=exact_match, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=token_f1, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.046212,
+      "max": 0.059595,
+      "range": 0.013383
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_contains, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.056395,
+      "max": 0.072727,
+      "range": 0.016332
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_em_first_token, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.007049,
+      "max": 0.009091,
+      "range": 0.002042
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=exact_match, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=token_f1, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.046212,
+      "max": 0.059595,
+      "range": 0.013383
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_contains, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.056395,
+      "max": 0.072727,
+      "range": 0.016332
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "bm25",
+      "held_fixed": "metric=normalized_em_first_token, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.007049,
+      "max": 0.009091,
+      "range": 0.002042
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=exact_match, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=token_f1, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.040304,
+      "max": 0.051977,
+      "range": 0.011673
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_contains, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.049849,
+      "max": 0.064286,
+      "range": 0.014437
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_em_first_token, k=1",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.006042,
+      "max": 0.007792,
+      "range": 0.00175
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=exact_match, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=token_f1, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.040304,
+      "max": 0.051977,
+      "range": 0.011673
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_contains, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.049849,
+      "max": 0.064286,
+      "range": 0.014437
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_em_first_token, k=3",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.006042,
+      "max": 0.007792,
+      "range": 0.00175
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=exact_match, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=token_f1, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.040304,
+      "max": 0.051977,
+      "range": 0.011673
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_contains, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.049849,
+      "max": 0.064286,
+      "range": 0.014437
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_em_first_token, k=5",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.006042,
+      "max": 0.007792,
+      "range": 0.00175
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=exact_match, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=token_f1, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.040304,
+      "max": 0.051977,
+      "range": 0.011673
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_contains, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.049849,
+      "max": 0.064286,
+      "range": 0.014437
+    },
+    {
+      "axis": "denominator_cat5",
+      "system": "tfidf_rag",
+      "held_fixed": "metric=normalized_em_first_token, k=10",
+      "varied_over": "excl_cat5,incl_cat5",
+      "min": 0.006042,
+      "max": 0.007792,
+      "range": 0.00175
+    }
+  ],
+  "stage2_pending": {
+    "judge_model": "PENDING",
+    "judge_prompt": "PENDING (eval/prompts/judge_{strict,lenient,cot_rubric}.txt)",
+    "answer_prompt": "PENDING (eval/prompts/answer_{concise,verbose}.txt)",
+    "seed": "PENDING",
+    "rank_stability_kendall_tau": "PENDING",
+    "status": "DEFERRED \u2014 PAID \u2014 not run in this workflow"
+  }
+}

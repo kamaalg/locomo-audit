@@ -1,0 +1,18 @@
+{
+  "instance_id": "T1-easy-0001",
+  "category": "T1",
+  "difficulty": "easy",
+  "update_frequency": "UF1",
+  "reasoning_depth": "RD0",
+  "persona_id": "p001",
+  "query": "What did I do the Saturday after I started at Acme?",
+  "corpus_ref": "data/synthetic/corpus/persona-001/",
+  "answer_bearing_doc_ids": ["d_0612"],
+  "gold": {
+    "answer": "I went on a Saturday hike that cleared my head",
+    "answer_type": "text",
+    "time_anchor": "2024-11-09",
+    "time_granularity": "day"
+  },
+  "metadata": {"comparability": false, "consolidation_probe": false, "noise_level": 0}
+}
