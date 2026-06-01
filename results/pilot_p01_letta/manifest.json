@@ -1,0 +1,31 @@
+{
+  "git_sha": "unknown",
+  "created_utc": "2026-06-01T03:39:01.736252+00:00",
+  "python": "3.14.3 (v3.14.3:323c59a5e34, Feb  3 2026, 11:41:37) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "tag": "pilot_p01_letta",
+  "args": {
+    "systems": "eval/configs/systems.yaml",
+    "systems_list": "letta",
+    "tasks": "data/external/locomo_pilot_p01",
+    "seeds": "1",
+    "output": "results/pilot_p01_letta",
+    "tag": "pilot_p01_letta",
+    "list_tasks": false,
+    "list_systems": false,
+    "budget_usd": 15.0,
+    "answer_mode": "generate",
+    "judge": "llm",
+    "answer_model": "claude-sonnet-4-5",
+    "judge_model": "claude-sonnet-4-5"
+  },
+  "audit": {
+    "answer_mode": "generate",
+    "judge": "llm",
+    "answer_model": "claude-sonnet-4-5",
+    "judge_model": "claude-sonnet-4-5",
+    "budget_usd": 15.0
+  },
+  "env": {
+    "PERSONALMEM_RUN_BUDGET_USD": "15"
+  }
+}
