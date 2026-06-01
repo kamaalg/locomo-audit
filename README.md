@@ -5,7 +5,7 @@
 [![License: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![Data: CC BY 4.0](https://img.shields.io/badge/synthetic_data-CC--BY--4.0-green.svg)](#license)
 
-**Status:** Preprint + open harness. Solo, independent project (no institutional affiliation). The forensic decomposition and the keyless $0 reproducible floor are done and reproducible today; the keyed vendor-comparison table is pending a budget-gated paid run (see [What's pending](#whats-pending-the-keyed-run)).
+**Status:** Preprint + open harness. Solo, independent project (no institutional affiliation). The forensic decomposition, the keyless $0 reproducible floor, and a **free-tier vendor pilot of all three commercial systems** (Mem0, Zep, Letta) are done and reproducible; only the full 5-seed × 10-persona keyed run with error bars is pending (see [What's pending](#whats-pending-the-full-keyed-run)).
 
 ---
 
@@ -34,7 +34,21 @@ To prove the pipeline runs on **real** (non-synthetic) LoCoMo data with no API k
 | BM25 | token-F1 | 0.0596 | 1540 | $0.00 |
 | TF-IDF | token-F1 | 0.0520 | 1540 | $0.00 |
 
-This is explicitly a **retrieval floor**, not a system score — it exercises the full pipeline on real data at zero cost so anyone can reproduce the harness's plumbing before spending a cent. The keyed vendor comparison (Mem0, Zep, Letta, long-context, under the generate-then-judge protocol) is **pending the budget-gated paid run**.
+This is explicitly a **retrieval floor**, not a system score — it exercises the full pipeline on real data at zero cost so anyone can reproduce the harness's plumbing before spending a cent.
+
+### First independent single-harness vendor numbers (free-tier pilot)
+
+All three commercial memory systems, plus a long-context control and the retrieval floor, scored under the **identical** generate-then-judge protocol on real LoCoMo (persona p01, 40 questions, 1 seed). Every `J` (judge-accuracy) was recomputed directly from the raw per-question output:
+
+| System | Config | **J (judge-accuracy)** | token-F1 | Status |
+|---|---|---:|---:|---|
+| long-context (brute force) | full context | **0.775** | 0.201 | control |
+| **Mem0** | vendor-blessed | **0.475** | 0.144 | free-tier pilot |
+| **Letta** | local Ollama embeddings | **0.200** | 0.111 | free-tier pilot |
+| **Zep** | vendor-blessed | **0.100** | 0.081 | free-tier pilot |
+| BM25 / TF-IDF | retrieval floor | 0.025 | 0.05 | floor |
+
+A clean, sensible ordering — three real memory systems landing between brute-force long-context and the keyless floor, on real LoCoMo under one fair harness, at **$0 vendor cost**. This is a **pilot** (1 persona, 1 seed); the full 5-seed × 10-persona run with error bars is the camera-ready upgrade (see [What's pending](#whats-pending-the-full-keyed-run)). Run manifests for each are in `results/`.
 
 ---
 
@@ -115,12 +129,12 @@ For the keyed generate-then-judge protocol, set `ANTHROPIC_API_KEY` in `.env` (c
 
 ---
 
-## What's pending (the keyed run)
+## What's pending (the full keyed run)
 
 Honest current state:
 
-- **Done & reproducible now:** the harness (`eval/runner.py`, `eval/metrics.py`, `eval/answer_gen.py`, `eval/judge.py`), the keyless $0 real-LoCoMo floor, the forensic decomposition, and the frozen protocol (implemented and verified end-to-end on real data with BM25 retrieval under a tiny budget cap).
-- **Pending the budget-gated keyed run (~$250–400):** every vendor cell (Mem0, Zep, Letta, long-context) under the generate-then-judge protocol. These are marked **"pending — keyed run"** in the paper and are not reported as numbers until the run lands.
+- **Done & reproducible now:** the harness (`eval/runner.py`, `eval/metrics.py`, `eval/answer_gen.py`, `eval/judge.py`), the keyless $0 real-LoCoMo floor, the forensic decomposition, the frozen protocol, **and a free-tier vendor pilot of all three commercial systems** (Mem0 J=0.475, Letta J=0.200, Zep J=0.100; persona p01, 40 Q, 1 seed) — each number recomputed from raw output and reproducible.
+- **Pending the budget-gated full run (~$2–6k):** scaling the pilot to all 10 personas × the full 1540-question set × 5 seeds, to report headline **mean ± std** with a robustness judge. The pilot demonstrates the protocol works end-to-end; the full run turns the point estimates into a leaderboard with error bars.
 - **Not claimed:** this is a preprint and an open harness, not a "widely adopted standard." No adoption, citation, or press claims are made.
 
 ---
