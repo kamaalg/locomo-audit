@@ -19,8 +19,9 @@ Each loader yields task records (dicts) plus the resolved corpus docs as
 from __future__ import annotations
 
 import json
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 from systems.base import Document
 

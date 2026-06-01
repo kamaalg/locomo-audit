@@ -18,7 +18,8 @@ mvpStatus: wired-needs-keys. needsKeys: true.
 from __future__ import annotations
 
 import os
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any
 
 from systems._registry import SystemUnavailable
 from systems.base import Document, MemorySystem, QueryResult

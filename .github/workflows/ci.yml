@@ -14,8 +14,10 @@ jobs:
       - name: Set up Python
         run: uv python install 3.11
       - name: Install
-        run: uv pip install --system -e ".[dev]"
+        # Install into a uv-managed venv; the runner's system Python is
+        # externally managed (PEP 668), so --system is rejected.
+        run: uv venv && uv pip install -e ".[dev]"
       - name: Lint
-        run: ruff check .
+        run: uv run ruff check .
       - name: Test
-        run: pytest
+        run: uv run pytest

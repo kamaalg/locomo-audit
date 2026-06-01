@@ -20,7 +20,6 @@ from eval.metrics import (
     supporting_doc_recall,
 )
 
-
 # --- T1/T6 dates ---
 
 def test_date_within_tolerance_exact_and_window():

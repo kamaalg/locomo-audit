@@ -12,8 +12,9 @@ must follow (vanilla defaults, pinned versions, honest cost measurement).
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from collections.abc import Iterable
 from dataclasses import dataclass, field
-from typing import Any, Iterable
+from typing import Any
 
 
 @dataclass

@@ -19,7 +19,8 @@ from __future__ import annotations
 import math
 import re
 import string
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 # --------------------------------------------------------------------------- #
 # Primitives (Wave 0 — kept exactly; do not change signatures)

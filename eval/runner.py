@@ -36,10 +36,11 @@ import json
 import os
 import subprocess
 import sys
+from collections.abc import Iterator
 from dataclasses import asdict, dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 # systems.base / registry are imported lazily inside load_system so the skeleton
 # (and --list-tasks) import cleanly even if a vendor adapter's optional dep is odd.
@@ -105,7 +106,7 @@ def write_manifest(output_dir: Path, args: argparse.Namespace) -> dict:
     """Record everything needed to reproduce this run. Returns the manifest dict."""
     manifest = {
         "git_sha": git_sha(),
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "python": sys.version,
         "tag": getattr(args, "tag", None),
         "args": vars(args),
@@ -308,8 +309,8 @@ def execute_cell(cell: Cell, task: TaskInstance, args: argparse.Namespace) -> Ce
     Vendor adapters whose SDK/key is missing raise SystemUnavailable; we catch it,
     return a skipped CellResult (never written as an independent number).
     """
-    from systems._registry import SystemUnavailable
     from eval.datasets.loaders import load_corpus
+    from systems._registry import SystemUnavailable
 
     task_path = Path(task.path)
     task_rec = json.loads(task_path.read_text())

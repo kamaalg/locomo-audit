@@ -41,9 +41,10 @@ import csv
 import json
 import subprocess
 import sys
-from datetime import datetime, timezone
+from collections.abc import Iterable
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from eval import metrics
 from eval.datasets.loaders import load_corpus
@@ -385,7 +386,7 @@ def run_sweep(
 
     manifest = {
         "git_sha": _git_sha(),
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "python": sys.version,
         "stage": "stage1",
         "tasks_root": str(tasks_root),

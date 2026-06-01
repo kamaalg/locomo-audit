@@ -18,7 +18,8 @@ import math
 import re
 import time
 from collections import Counter
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any
 
 from systems.base import Document, MemorySystem, QueryResult
 
